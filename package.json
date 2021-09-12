@@ -1,0 +1,22 @@
+{
+    "name": "@letsdeel/migration",
+    "version": "1.0.0",
+    "description": "migration script",
+    "main": "index.js",
+    "scripts": {},
+    "keywords": [],
+    "author": "Gilad Novik <gilad@letsdeel.com>",
+    "license": "ISC",
+    "peerDependencies": {
+        "pg": "^8.7.1",
+        "sequelize": "^6.6.5"
+    },
+    "devDependencies": {
+        "babel-eslint": "^10.1.0",
+        "eslint": "^7.32.0",
+        "eslint-plugin-node": "^11.1.0"
+    },
+    "bin": {
+        "migration": "./bin/migration.js"
+    }
+}
