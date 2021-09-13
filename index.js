@@ -18,7 +18,7 @@ module.exports = async ([url, schema], dirname = './migrations') => {
         const meta = new Set((await SequelizeMeta.findAll({logging: false, raw: true})).map(({name}) => name));
 
         for (const name of [...files].filter((name) => !meta.has(name)).sort()) {
-            const resolved = require.resolve(dirname, `./${name}`);
+            const resolved = require.resolve(path.resolve(dirname, `./${name}`));
             console.info('running migration for', path.basename(name, '.js'));
             await require(resolved).up(sequelize.getQueryInterface(), Sequelize);
             await SequelizeMeta.create({name});
