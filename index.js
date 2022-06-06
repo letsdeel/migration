@@ -24,11 +24,6 @@ module.exports = async ([url, schema], dirname = './migrations') => {
             await SequelizeMeta.create({name});
             delete require.cache[resolved];
         }
-
-        await (async (name) => {
-            if (!name.length) return;
-            await SequelizeMeta.destroy({where: {name}});
-        })([...meta].filter((name) => !files.has(name)));
     } finally {
         await sequelize.close();
     }
